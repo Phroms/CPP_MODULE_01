@@ -11,3 +11,31 @@
 /* ************************************************************************** */
 
 #include "zombie.hpp"
+
+Zombie::Zombie(const std::string name)
+{
+    this->_name = name;
+}
+
+void    Zombie::announce(void) const
+{
+    std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+Zombie* newZombie(const std::string& name)
+{
+    Zombie *newZombie; //aqui con esto creas el objeto
+    newZombie = new Zombie(name);
+    return newZombie;
+}
+
+void    randomChump(const std::string& name)
+{
+    Zombie z(name);
+    z.announce();
+}
+
+Zombie::~Zombie()
+{
+    std::cout << "Is destroyed ..." << std::endl;
+}

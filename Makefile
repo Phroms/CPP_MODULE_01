@@ -10,16 +10,16 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Zombieee 🧟
+NAME = Zombieee🧟
 CPP = g++
-CPPFLAGS = -Wall -Werror -Wextra -g -fsanitize=address -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra -g -std=c++98 #fsanitize=address -
 RM = rm -rf
 
 SRC = main.cpp zombie.cpp
 
 OBJECTS = $(SRC:.cpp=.o)
 
-all: NAME
+all: $(NAME)
 
 $(NAME): $(OBJECTS)
 		@echo "Compiling successfly!!!\n"
@@ -31,7 +31,7 @@ fclean: clean
 clean:
 		$(RM) $(OBJECTS)
 
-re: fclean clean
+re: fclean all
 
 .PHONY: all clean fclean re
 
