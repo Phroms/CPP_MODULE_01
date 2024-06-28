@@ -27,12 +27,11 @@ void    Zombie::setName(const std::string name)
 }
 
 Zombie* zombieHorde(int N, std::string name)
-{
-    Zombie* horde = new Zombie[N];
-
+{ 
     if (N <= 0)
         return (0);
-
+    
+    Zombie* horde = new Zombie[N];
     for (int i = 0; i < N; i++)
     {
         horde[i].setName(name); 
