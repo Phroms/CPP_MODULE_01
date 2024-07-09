@@ -14,6 +14,9 @@ NAME = Zombieee🧟
 CPP = g++
 CPPFLAGS = -Wall -Werror -Wextra -g -std=c++98 #fsanitize=address -
 RM = rm -rf
+CYAN = \033[96m
+RED = \033[91m
+END_COLOR = \033[0m
 
 SRC = main.cpp zombie.cpp
 
@@ -22,13 +25,14 @@ OBJECTS = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-		@echo "Compiling successfly!!!\n"
+		@echo "$(CYAN)\nCompiling successfly!!!\n$(END_COLOR)"
 		$(CPP) $(CPPFLAGS) -o $(NAME) $(OBJECTS)
 
 fclean: clean
 		$(RM) $(NAME)
 
 clean:
+		@echo "$(RED)\nRemoving!!!\n$(END_COLOR)"
 		$(RM) $(OBJECTS)
 
 re: fclean all
