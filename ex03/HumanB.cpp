@@ -20,9 +20,9 @@ HumanB::HumanB(const std::string name)
 
 void HumanB::setWeapon(Weapon& weapon)
 {  
-    if (_weapon)
-        delete _weapon;
-    _weapon = new Weapon(weapon);
+    //if (_weapon)
+          //delete _weapon;
+    _weapon = &weapon;
 }
 
 void    HumanB::attack()const
@@ -35,5 +35,5 @@ void    HumanB::attack()const
 
 HumanB::~HumanB()
 {
-    delete _weapon;
+    //delete _weapon;
 };

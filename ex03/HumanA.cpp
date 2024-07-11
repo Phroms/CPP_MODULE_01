@@ -12,11 +12,11 @@
 
 # include "prueba.hpp"
 
-HumanA::HumanA(const std::string name, const Weapon& weapon)
+HumanA::HumanA(const std::string name, Weapon& weapon)
+    : _humanA(name), _weapon(weapon)
 {
-    this-> _humanA = name;
-    this-> _weapon = weapon;
-};
+    //no entiendo esta mrd jjajajajajajaj
+}
 
 void HumanA::attack()const
 {
