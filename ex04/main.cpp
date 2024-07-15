@@ -12,8 +12,33 @@
 
 # include "prueba.hpp"
 
-int main()
+std::string replace_value(std::string line, std::string s1, std::string s2)
 {
-    std::cout << "Pruebita" << std::endl;
+    std::string result;
+}
+
+std::string read_line(std::ifstream &inputfile)
+{
+    std::string line;
+    std::getline(inputfile, line);
+    return (line);
+}
+
+int main(int argc, char **argv)
+{
+    if (argc != 4)
+    {
+        std::cout << "Fallo con los archivos" << std::endl;
+        return (1);
+    }
+    std::ifstream inputfile(argv[1]);
+
+    if (!inputfile)
+    {
+        std::cout << "Error al abrir el archivo" << std::endl;
+        return (1);
+    }
+    std::string line = read_line(inputfile);
+    std::cout << line << std::endl;
     return (0);
 }

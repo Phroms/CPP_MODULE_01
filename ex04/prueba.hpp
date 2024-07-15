@@ -14,8 +14,10 @@
  #define PRUEBA_HPP
 
 # include <iostream>
+# include <fstream>
+# include <sstream>
 # include <string>
 
-int main();
+int main(int argc, char **argv);
 
  #endif
