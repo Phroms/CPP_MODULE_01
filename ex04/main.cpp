@@ -12,16 +12,25 @@
 
 # include "prueba.hpp"
 
-std::string replace_value(std::string line, std::string s1, std::string s2)
+int replace_value(std::string &line, const std::string &s1, const std::string &s2)
 {
-    std::string result;
-}
+    int change = 0;
+    size_t pos = 0;
 
-std::string read_line(std::ifstream &inputfile)
-{
-    std::string line;
-    std::getline(inputfile, line);
-    return (line);
+    if (s1.empty())
+        return (change);
+    
+    while (true)
+    {
+        pos = line.find(s1, pos);
+        if (pos >= line.size())
+            break;
+        line = line.substr(0, pos) + s2 + line.substr(pos + s1.length());
+        pos += s2.length();
+        change++;
+    }
+    //std::cout << "Hubo" << change << "change(s). " << std::endl;
+    return (change);
 }
 
 int main(int argc, char **argv)
@@ -38,7 +47,13 @@ int main(int argc, char **argv)
         std::cout << "Error al abrir el archivo" << std::endl;
         return (1);
     }
-    std::string line = read_line(inputfile);
-    std::cout << line << std::endl;
+    std::string line;
+    int total_change = 0;
+    while (getline(inputfile, line))
+    {
+        total_change += replace_value(line, argv[2], argv[3]);
+        std::cout << line << std::endl;
+    }
+    std::cout << "Total de cambios realizados" << total_change << std::endl;
     return (0);
 }
